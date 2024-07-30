@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Keks</title>
+        <link rel="shortcut icon" href="logo.png">
+        <style>
+            body{
+                background-image: url('cover.png');
+                margin: 0;
+            }
+            .main{
+                width: 100%;
+                height: 90vh;
+            }
+            .jopa{
+                height: 30%;
+            }
+            .jopa>img{
+                height: 100%;
+                width: 100%;
+            }
+            .hui>img{
+                height: 100%;
+                width: 100%;
+                position: relative;
+                left: 60%;
+            }
+            .hui{
+                height: 60%;
+                width: 40%;
+            }
+            .control{
+                width: 100%;
+                height: 10vh;
+                text-align: center;
+            }
+            .control>button{
+                height: 50%;
+                width: 40%;
+                border-radius: 5vh;
+                border: none;
+                box-shadow: black 0 0 2vh;
+                margin: 2%;
+                font-size: 200%;
+                font-weight: bolder;
+            }
+            #paste{
+                background-color: yellow;
+            }
+            #cut{
+                background-color: chocolate;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            $('document').ready(function(){
+                $('#paste').click(function(){
+                    $('#set').html('<style id="set">#hui{bottom: 30%;}</style>')
+                    setTimeout(() => $('#set').html('<style id="set">#hui{top: 0;}</style>'), 100);
+                });
+                $('#cut').click(function(){
+                    var jopa=document.getElementById("jopa");
+                    $('#set').html('<style id="set">#hui{bottom: 30%;}</style>')
+                    setTimeout(() => $('#set').html('<style id="set">#hui{top: 0;}</style>'), 2000);
+                    setTimeout(() => jopa.src="cut.png", 2100);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="jopa">
+                <img src="jopa.png" id="jopa">
+            </div>
+            <br>
+            <div class="hui">
+                <img src="hui.png" id="hui">
+            </div>
+            <style id="set"></style>
+        </div>
+        <div class="control">
+            <button id="paste">Вставить</button><button id="cut">Кончить</button>
+        </div>
+    </body>
+</html>
